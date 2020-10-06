@@ -801,6 +801,11 @@ module.exports = exports = function(socket, config) {
             }
         });
 
+        socket.on('close-room', function(arg, callback) {
+            console.log('GOT close-room', arg, callback)
+            closeOrShiftRoom()
+        })
+
         socket.on('open-room', function(arg, callback) {
             callback = callback || function() {};
 
